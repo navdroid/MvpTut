@@ -16,7 +16,6 @@ class MvpApp : Application() {
     lateinit var dataManager: DataManager
     override fun onCreate() {
         super.onCreate()
-        dataManager = DataManager(SharedPrefsHelper(applicationContext))
         applicationComponent = DaggerApplicationComponent
                 .builder()
                 .applicationModule( ApplicationModule(this))
