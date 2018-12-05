@@ -13,11 +13,8 @@ import nav.com.mvptut.presenter.SplashPresenter
 class SplashActivity : BaseActivity(), SplashView {
 
     override fun openMainActivity() {
-//        val intent = MainActivity.getStartIntent(this)
-//        startActivity(intent)
-//        finish()
-        Toast.makeText(this, "LoggedIn", Toast.LENGTH_SHORT).show()
-
+        startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+        finish()
     }
 
     override fun openLoginActivity() {

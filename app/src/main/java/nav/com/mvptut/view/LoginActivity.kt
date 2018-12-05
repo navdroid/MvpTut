@@ -31,12 +31,8 @@ class LoginActivity : BaseActivity(), LoginView {
     }
 
     override fun openMainActivity() {
-
-//        val intent = MainActivity.getStartIntent(this)
-//        startActivity(intent)
-//        finish()
-        Toast.makeText(this, "LoggedIn", Toast.LENGTH_SHORT).show()
-
+        startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+        finish()
     }
 
     override fun onLoginButtonClick() {
