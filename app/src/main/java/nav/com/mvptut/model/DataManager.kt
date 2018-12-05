@@ -1,6 +1,10 @@
 package nav.com.mvptut.model
 
-class DataManager(private var mSharedPrefsHelper: SharedPrefsHelper) {
+import javax.inject.Inject
+import javax.inject.Singleton
+
+@Singleton
+class DataManager @Inject constructor(var mSharedPrefsHelper: SharedPrefsHelper) {
 
     val emailId: String?
         get() = mSharedPrefsHelper.email

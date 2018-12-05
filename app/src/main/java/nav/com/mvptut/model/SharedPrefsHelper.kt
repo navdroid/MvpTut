@@ -5,11 +5,15 @@ import android.content.Context
 import android.text.method.TextKeyListener.clear
 import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
+import nav.com.mvptut.di.ApplicationContext
+import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
+class SharedPrefsHelper @Inject constructor(@ApplicationContext val context: Context) {
 
-class SharedPrefsHelper(context: Context) {
-
-    internal var mSharedPreferences: SharedPreferences
+    @Inject
+    lateinit var mSharedPreferences: SharedPreferences
 
     val email: String?
         get() = mSharedPreferences.getString(EMAIL, null)
@@ -17,10 +21,6 @@ class SharedPrefsHelper(context: Context) {
     var loggedInMode: Boolean
         get() = mSharedPreferences.getBoolean("IS_LOGGED_IN", false)
         set(loggedIn) = mSharedPreferences.edit().putBoolean("IS_LOGGED_IN", loggedIn).apply()
-
-    init {
-        mSharedPreferences = context.getSharedPreferences(MY_PREFS, MODE_PRIVATE)
-    }
 
     fun clear() {
         mSharedPreferences.edit().clear().apply()
