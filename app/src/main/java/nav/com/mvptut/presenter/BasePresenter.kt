@@ -4,7 +4,7 @@ import nav.com.mvptut.model.DataManager
 import nav.com.mvptut.view.MvpView
 
 
-class BasePresenter<V : MvpView>(dataManager: DataManager) : MvpPresenter<V> {
+open class BasePresenter<V : MvpView>(dataManager: DataManager) : MvpPresenter<V> {
 
     var mvpView: V? = null
         private set
