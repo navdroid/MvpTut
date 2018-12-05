@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.content.Intent
 import android.support.annotation.Nullable
+import android.widget.Toast
 import nav.com.mvptut.MvpApp
 import nav.com.mvptut.R
 import nav.com.mvptut.presenter.SplashPresenter
@@ -15,12 +16,13 @@ class SplashActivity : BaseActivity(), SplashView {
 //        val intent = MainActivity.getStartIntent(this)
 //        startActivity(intent)
 //        finish()
+        Toast.makeText(this, "LoggedIn", Toast.LENGTH_SHORT).show()
+
     }
 
     override fun openLoginActivity() {
-//        val intent = MainActivity.getStartIntent(this)
-//        startActivity(intent)
-//        finish()
+        startActivity(Intent(this@SplashActivity, LoginActivity::class.java))
+        finish()
     }
 
     fun getStartIntent(context: Context): Intent {
